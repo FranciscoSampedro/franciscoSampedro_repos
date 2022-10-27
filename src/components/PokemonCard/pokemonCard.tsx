@@ -22,10 +22,10 @@ const PokemonCard:FC<PokemonCardProps> = ({id,picture,name}) => {
         };
     }, [])
     return (
-      <div style={{backgroundColor:color}} className={ style.Home} >
+        <div style={{ backgroundColor: color }} className={style.card} >
           <h2 className={style.card_title}>{id}</h2>
           <img src={picture} alt="" />
-          <h2>{name}</h2>
+            <h2 className={style.card_title}>{name}</h2>
       </div>
   )
 }

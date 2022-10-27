@@ -10,3 +10,9 @@ export const getPokemons = async (pagination: number): Promise<PokemonPagination
     const {data} = await axios.get<PokemonPagination>(`/pokemon/?limit=4&offset=${pagination}`)
     return data
 }
+
+export const getPokemonsStatic = async (url: string): Promise<PokemonPagination> => {
+    const { data } = await axios.get<PokemonPagination>(url)
+    return data
+}
+

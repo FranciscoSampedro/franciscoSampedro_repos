@@ -4,9 +4,9 @@
     /* padding-left: 0; */
     /* margin: auto; */
     /* padding-top: 30px; */
-   left: 0;
-   top:70px;
-position: absolute;
+    left: 0;
+    top: 70px;
+    position: absolute;
     /* display: fixed; */
     /* border-color: black; */
     /* background-color: black; */
@@ -16,21 +16,55 @@ position: absolute;
 .Home_RightContent {
     flex-basis: 50%;
 }
-.Home_h3--black{
+
+.Home_h3__black {
     color: black;
 }
-.Home_Buttons{
-    
+
+.Home_Buttons {
+    margin-left: 6%;
+    display: flex;
+    width: 80vw;
 }
+.Home_Buttons button {
+    /* outline: none; */
+    border: none;
+    width: 150px;
+    /* padding: 0.3rem 0; */
+    margin: 1rem;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    background-color:rgb(1, 80, 170);
+    border-radius: 3px;
+}
+
+.Home_Navbar {
+    /* flex: 1; */
+    top: 70px;
+    width: auto;
+    /* margin: 10px; */
+    flex: content;
+    margin-left: 6%;
+}
+
 .Home_leftContent {
     display: grid;
-    margin-left: 100px;
-    /* flex-direction: column; */
-    /* position: fixed; */
-    /* background-color: brown; */
-    
-    grid-template-columns: 200px 200px ;
-    /* grid-template-columns: 500ch auto; */
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr)); */
+    margin-top: 5px;
+    margin-left: 7%;
+    width: 40%;
+    grid-template-columns: 175px 175px;
     grid-gap: 0.5rem;
+}
+
+.Home_RightContent {
+    background-color: rgba(0, 0, 0, 0.079);
+    width: 50%;
+    height: 70%;
+    /* text-align: center; */
+    color: black;
+    position: fixed;
+    top: 20vh;
+    /* top: px; */
+    right: 10px;
 }
