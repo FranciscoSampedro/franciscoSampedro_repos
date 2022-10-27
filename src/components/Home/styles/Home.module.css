@@ -1,4 +1,36 @@
-.Home{
-
+.Home_container {
+    width: 100vw;
+    /* margin-top: 1px; */
+    /* padding-left: 0; */
+    /* margin: auto; */
+    /* padding-top: 30px; */
+   left: 0;
+   top:70px;
+position: absolute;
+    /* display: fixed; */
+    /* border-color: black; */
+    /* background-color: black; */
 }
 
+.Home_leftContent,
+.Home_RightContent {
+    flex-basis: 50%;
+}
+.Home_h3--black{
+    color: black;
+}
+.Home_Buttons{
+    
+}
+.Home_leftContent {
+    display: grid;
+    margin-left: 100px;
+    /* flex-direction: column; */
+    /* position: fixed; */
+    /* background-color: brown; */
+    
+    grid-template-columns: 200px 200px ;
+    /* grid-template-columns: 500ch auto; */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr)); */
+    grid-gap: 0.5rem;
+}

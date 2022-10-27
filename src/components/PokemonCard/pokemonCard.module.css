@@ -1,0 +1,26 @@
+.card {
+    width: 200px;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    /* padding: 0 1.5rem; */
+    /* display: flex; */
+    align-items: center;
+    /* justify-content: space-between; */
+    box-sizing: border-box;
+    /* position: inherit; */
+    /* flex-grow: unset; */
+  
+}
+
+img {
+    object-fit: scale-down;
+    width: 200px;
+    height: auto;
+    /* width: auto; */
+    /* height: auto; */
+}
+
+.card_title {
+    margin: 0%;
+}
