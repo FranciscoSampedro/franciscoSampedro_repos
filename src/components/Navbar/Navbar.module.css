@@ -1,0 +1,12 @@
+.Nav{
+    background: rgb(151, 169, 207);
+    height: 50px;
+    width: 100vw;
+    /* width: auto; */
+    /* display:flex; */
+    position:fixed;
+    top:0;
+    left:0;
+
+
+}
