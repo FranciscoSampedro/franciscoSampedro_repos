@@ -9,22 +9,24 @@ export const usePokemonPagination = () => {
     const loadPokemons = async (pagination: number) => {
         setIsLoading(true)
         const {results,next,previous} = await getPokemons(pagination)
+        
         // console.log(response.results)
         mapPokemonList(results)
         setNextUrl(next)
         setBackUrl(previous!)
-        console.log(nextUrl)
+       
     }
     const loadPoKemonStatic = async (url: string) =>{
-       const response = await getPokemonsStatic(url)
-        mapPokemonList(response.results)
-        setNextUrl(response.next)
+       const {results,next,previous} = await getPokemonsStatic(url)
+        mapPokemonList(results)
+        setNextUrl(next)
+        setBackUrl(previous!)
     }
     const nextLoadPokemon = async () => {
         loadPoKemonStatic(nextUrl)
     }
     const backLoadPokemon = async () => {
-        loadPoKemonStatic(nextUrl)
+        loadPoKemonStatic(backUrl)
     }
     const mapPokemonList = async (pokemonList: Result[]) => {
 
@@ -45,6 +47,8 @@ export const usePokemonPagination = () => {
         simpleListPokemon,
         loadPokemons,
         loadPoKemonStatic,
-        nextLoadPokemon
+        nextLoadPokemon,
+        backLoadPokemon,
+        backUrl
     }
 }

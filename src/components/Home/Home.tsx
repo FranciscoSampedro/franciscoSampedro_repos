@@ -8,13 +8,15 @@ import { Pokemon, Other } from '@src/types/pokemon.type';
 import { usePokemonPagination } from '@hooks/usePokemonPagination';
 import SearchBar from './SearchBar';
 const Home: React.FC<HomeInterface> = () => {
-	const { isLoading, simpleListPokemon, loadPokemons,  nextLoadPokemon } = usePokemonPagination()
-	const [current, setCurrent] = useState<number>(1)
+	const { isLoading, simpleListPokemon, loadPokemons,  nextLoadPokemon,backLoadPokemon,backUrl } = usePokemonPagination()
+	const [current, setCurrent] = useState<number>(0)
+
 	// console.log(simpleListPokemon)
 	useEffect(() => {
-		loadPokemons(0)
-		console.log(isLoading)
+		loadPokemons(current)
+	
 	}, [])
+	
 	const onChange = (page: number)=>{
 		console.log(page,"?>>>")
 		setCurrent(page)
@@ -38,7 +40,9 @@ const Home: React.FC<HomeInterface> = () => {
 					d
 				</div>
 				<div className={style.Home_Buttons}>
-					<button >Atrás</button>
+					
+						<button disabled={!backUrl} onClick={backLoadPokemon}>Atrás</button>
+					
 					<button onClick={nextLoadPokemon}>Siguiente</button>
 				</div>
 			</div>
