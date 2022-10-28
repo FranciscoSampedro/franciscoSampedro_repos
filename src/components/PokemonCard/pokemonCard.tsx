@@ -1,18 +1,16 @@
-import  { FC,useState,useEffect } from 'react'
+import { FC, useState, useEffect } from 'react'
 import style from "./pokemonCard.module.css"
-import {prominent} from "color.js"
+import { prominent } from "color.js"
+import { usePokemonPagination } from '@hooks/usePokemonPagination'
 export interface PokemonCardProps {
-    id:string,
-    picture:string,
-    name:string
+    id: string,
+    picture?: string,
+    name: string
+    // onClick: Function
 }
-const PokemonCard:FC<PokemonCardProps> = ({id,picture,name}) => {
-    const [color, setColor] = useState<string>('#fff');
-
-    const colors1 = (picture: string) => {
-        return prominent(picture, { format: 'hex', sample: 30 }).then(color => color[1].toString())
-    }
-
+const PokemonCard: FC<PokemonCardProps> = ({ id, picture = '', name }) => {
+    const { onClickPokemon, setColor, color, colors1 } = usePokemonPagination()
+    // console.log("imagenorige:",picture)
     useEffect(() => {
         colors1(picture).then((result => {
             setColor(result);
@@ -22,12 +20,13 @@ const PokemonCard:FC<PokemonCardProps> = ({id,picture,name}) => {
         };
     }, [])
     return (
-        <div style={{ backgroundColor: color }} className={style.card} >
-          <h2 className={style.card_title}>{id}</h2>
-          <img src={picture} alt="" />
+        <div style={{ backgroundColor: color }} className={style.card} onClick={() => onClickPokemon(name)}>
+            <img src={picture} alt="" />
+            <h2 className={style.card_title}>#{id}</h2>
             <h2 className={style.card_title}>{name}</h2>
-      </div>
-  )
+        </div>
+
+    )
 }
 
 export default PokemonCard

@@ -66,7 +66,7 @@ button[disabled] {
 }
 
 .Home_RightContent {
-    background-color: rgba(0, 0, 0, 0.079);
+    /* background-color: rgba(0, 0, 0, 0.079); */
     width: 50%;
     height: 70%;
     /* text-align: center; */

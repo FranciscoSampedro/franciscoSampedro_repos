@@ -1,6 +1,6 @@
 import axios from './axios'
-import { Pokemon } from '../types/pokemon.type'
-import { PokemonPagination } from '@src/types/paginationType';
+import { Pokemon } from '../types/pokemon'
+import { PokemonPagination } from '@src/types/pagination';
 export const getPokemon = async (pokemons: string): Promise<Pokemon> => {
     const {data} = await axios.get<Pokemon>(`/pokemon/${pokemons}`)
     return data;

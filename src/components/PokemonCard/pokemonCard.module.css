@@ -13,8 +13,8 @@
   
 }
 
-img {
-    object-fit: scale-down;
+.card img {
+    /* object-fit: scale-down; */
     width: 175px;
     height: auto;
     /* width: auto; */

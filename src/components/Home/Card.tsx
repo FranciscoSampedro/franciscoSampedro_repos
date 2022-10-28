@@ -2,7 +2,6 @@ import PokemonCard, { PokemonCardProps } from "@components/PokemonCard/pokemonCa
 import style from "./styles/Card.module.css"
 interface Props {
     simpleListPokemon: any;
-    // infoPokemon: any;
     isLoading: Boolean;
 }
 export const Card = ({ simpleListPokemon, isLoading }: Props) => {

@@ -4,24 +4,47 @@ import { useState, useEffect } from "react";
 import Card from './Card';
 export interface HomeInterface { }
 import { getPokemon } from '@services/pokemon.service'
-import { Pokemon, Other } from '@src/types/pokemon.type';
+import { Pokemon, Other } from '@src/types/pokemon';
 import { usePokemonPagination } from '@hooks/usePokemonPagination';
 import SearchBar from './SearchBar';
+import { useAppDispatch, useAppSelector } from '@hooks/hooks';
+import PokemonCard from '@components/PokemonCard/pokemonCard';
+import { decrementIndex, incrementIndex } from '../../store/pokemon/pokemonSlice';
+import { getNewPokemons, setPokemon } from '../../store/pokemon/thunk';
+import PokemonInfo from '@components/PokemonInfoSelected/pokemonInfo';
 const Home: React.FC<HomeInterface> = () => {
-	const { isLoading, simpleListPokemon, loadPokemons,  nextLoadPokemon,backLoadPokemon,backUrl } = usePokemonPagination()
-	const [current, setCurrent] = useState<number>(0)
+	const { activePokemon, pokemons, isLoading, simpleListPokemon, onClickNext,
+		onClickPrevious, onClickPokemon, mapPokemonList, loadPokemons,  nextLoadPokemon,backLoadPokemon,backUrl } = usePokemonPagination()
+	// const [current, setCurrent] = useState<number>(0)
 
-	// console.log(simpleListPokemon)
 	useEffect(() => {
-		loadPokemons(current)
+		mapPokemonList()
+	}, [pokemons])
 	
-	}, [])
+	// console.log(simpleListPokemon)
+	// useEffect(() => {
+	// 	loadPokemons(current)
 	
-	const onChange = (page: number)=>{
-		console.log(page,"?>>>")
-		setCurrent(page)
-		loadPokemons((page*4)-4)
-	}
+	// }, [])
+
+	// const { pokemons, index, activePokemon } = useAppSelector(
+	// 	(state) => state.pokemon
+	// );
+
+	// const dispatch = useAppDispatch();
+	// const onClickNext = () => {
+	// 	dispatch(incrementIndex());
+	// 	dispatch(getNewPokemons(index + 1));
+	// };
+	// const onClickPrevious = () => {
+	// 	dispatch(decrementIndex());
+	// 	dispatch(getNewPokemons(index - 1));
+	// };
+
+	// const onClickPokemon = (name: string) => {
+	// 	dispatch(setPokemon(name));
+	// };
+
 	return (
 		<>
 			<div className={style.Home_container}>
@@ -34,16 +57,16 @@ const Home: React.FC<HomeInterface> = () => {
 					} }/>
 				</div>
 				<div className={style.Home_leftContent}>
-					<Card simpleListPokemon={simpleListPokemon} isLoading={isLoading} />
+					<Card simpleListPokemon={simpleListPokemon} isLoading={isLoading}  />
 				</div>
 				<div className={style.Home_RightContent}>
-					d
+					<PokemonInfo/>
 				</div>
 				<div className={style.Home_Buttons}>
 					
-						<button disabled={!backUrl} onClick={backLoadPokemon}>Atrás</button>
+						<button disabled={!pokemons?.previous} onClick={onClickPrevious}>Atrás</button>
 					
-					<button onClick={nextLoadPokemon}>Siguiente</button>
+					<button onClick={onClickNext}>Siguiente</button>
 				</div>
 			</div>
 
