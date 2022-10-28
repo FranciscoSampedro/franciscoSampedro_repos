@@ -63,7 +63,6 @@ export const fetchInitialPokemons = () => (dispatch) => {
             let pokemons: Pokemon[] = [];
             //@ts-ignore
             dispatch(setPokemons(data));
-            console.log("data:",data);
             dispatch(setResult(data.results));
         })
         .catch((error) => console.log(error));

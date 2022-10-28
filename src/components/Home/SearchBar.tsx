@@ -1,5 +1,4 @@
 import React from 'react';
-// export interface SearchBarInterface {}
 import style from "./styles/SearchBar.module.css"
 const { useState }= React;
 interface Props {
